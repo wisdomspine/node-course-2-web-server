@@ -4,7 +4,7 @@ const fs= require('fs');
 const PORT=process.env.PORT || 3000;
 const ejs= require('ejs');
 
-const MAINTENANCE_MODE=true;
+const MAINTENANCE_MODE=false;
 
 const app= express();
 
@@ -52,4 +52,6 @@ app.get("/", (req, res)=>{
 app.use(express.static(path.join(__dirname, "/static")));
 //app.use('/vps', express.static(path.join(__dirname, '/static/')));
 
-app.listen(PORT);
+app.listen(PORT, e => {
+  console.log(`App started on port ${PORT}`);
+});
